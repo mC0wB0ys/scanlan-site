@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <script defer data-domain="scanlan.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -19,6 +20,7 @@
       </a>
       <nav class="top-nav" aria-label="Main navigation">
         <a class="store-link" href="index.html" aria-current="page">Home</a>
+        <a class="store-link" href="changelog.html">Changelog</a>
         <a class="store-link" href="support.html">Support</a>
         <a class="store-link" href="privacy.html">Privacy</a>
       </nav>
@@ -41,7 +43,7 @@
           </div>
           <ul class="trust-list">
             <li>On-device scanning core</li>
-            <li>No analytics tracking</li>
+            <li>No in-app analytics tracking</li>
             <li>Great for home, lab, and travel networks</li>
           </ul>
         </div>
@@ -73,6 +75,39 @@
       </article>
     </section>
 
+    <section class="how-it-works wrap" id="how-it-works">
+      <div class="section-head">
+        <p class="eyebrow">How It Works</p>
+        <h2>Three Steps to Network Clarity</h2>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <p class="step-number">1</p>
+          <h3>Start Scan</h3>
+          <p>Run a local scan on your current Wi-Fi network and discover active hosts quickly.</p>
+        </article>
+        <article class="step-card">
+          <p class="step-number">2</p>
+          <h3>Review Hosts + Services</h3>
+          <p>Inspect host details, service indicators, and optional deep scan output to understand exposure.</p>
+        </article>
+        <article class="step-card">
+          <p class="step-number">3</p>
+          <h3>Export + Share</h3>
+          <p>Export findings as CSV, JSON, TXT, or changes-only CSV for records and follow-up.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="who-for wrap" aria-label="Who ScanLan is for">
+      <p class="who-title">Who this is for</p>
+      <div class="who-pills">
+        <span class="who-pill">Home Users</span>
+        <span class="who-pill">IT Admins</span>
+        <span class="who-pill">Travelers</span>
+      </div>
+    </section>
+
     <section class="features wrap" id="features">
       <div class="section-head">
         <p class="eyebrow">Core Workflow</p>
@@ -98,6 +133,21 @@
       </div>
     </section>
 
+    <section class="proof wrap" aria-label="Proof points">
+      <article class="proof-card">
+        <h3>Built for iPhone</h3>
+        <p>Designed for fast local recon workflows on iOS without desktop setup.</p>
+      </article>
+      <article class="proof-card">
+        <h3>On-Device Scanning</h3>
+        <p>Core discovery and service inspection run on your device.</p>
+      </article>
+      <article class="proof-card">
+        <h3>No Account Required</h3>
+        <p>Open the app, grant local network access, and scan.</p>
+      </article>
+    </section>
+
     <section class="screens wrap" id="screens">
       <div class="section-head">
         <p class="eyebrow">Interface</p>
@@ -116,14 +166,44 @@
       <h2>Launching Soon on the App Store</h2>
       <p>Whether you run IT, manage a home lab, or just want to know what is on the Wi-Fi around you, ScanLan gives fast, local insight.</p>
       <button class="btn btn-primary" type="button" disabled>App Store Coming Soon</button>
+      <a class="btn btn-ghost cta-link" data-cta="launch-updates" href="mailto:support@scanlan.app?subject=ScanLan%20Launch%20Updates&body=Please%20send%20me%20launch%20updates%20for%20ScanLan.">Get Launch Updates</a>
+    </section>
+
+    <section class="faq wrap" id="faq">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Why does ScanLan request Local Network permission?</summary>
+          <p>Local Network permission is required so ScanLan can discover and analyze hosts and services on the Wi-Fi network your iPhone is connected to.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What data does ScanLan collect?</summary>
+          <p>Core scanning results are processed locally on-device. Exported files are only created and shared when you choose to export.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does ScanLan require an account or login?</summary>
+          <p>No. Core functionality works without account creation.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does sharing work?</summary>
+          <p>You can export findings as CSV, JSON, TXT, or changes-only CSV and share them using iOS share actions.</p>
+        </details>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer wrap">
     <p>© 2026 ScanLan. Built for iPhone network visibility.</p>
-    <p><a class="footer-link" href="support.html">Support</a> · <a class="footer-link" href="privacy.html">Privacy Policy</a></p>
+    <p><a class="footer-link" href="changelog.html">Changelog</a> · <a class="footer-link" href="support.html">Support</a> · <a class="footer-link" href="privacy.html">Privacy Policy</a></p>
   </footer>
   <script>
+    window.plausible = window.plausible || function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments);
+    };
+
     (function () {
       var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       var video = document.querySelector(".demo-video");
@@ -174,6 +254,32 @@
       } else if (typeof prefersReducedMotion.addListener === "function") {
         prefersReducedMotion.addListener(syncVideoMotionPreference);
       }
+    })();
+
+    (function () {
+      var seen = {};
+      var milestones = [25, 50, 75, 100];
+      function onScroll() {
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - window.innerHeight;
+        if (max <= 0) return;
+        var pct = Math.round((window.scrollY / max) * 100);
+        milestones.forEach(function (m) {
+          if (pct >= m && !seen[m]) {
+            seen[m] = true;
+            window.plausible("Scroll Depth", { props: { percent: String(m) } });
+          }
+        });
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      document.querySelectorAll("[data-cta]").forEach(function (el) {
+        el.addEventListener("click", function () {
+          window.plausible("CTA Click", { props: { id: el.getAttribute("data-cta") || "unknown" } });
+        });
+      });
     })();
   </script>
 </body>

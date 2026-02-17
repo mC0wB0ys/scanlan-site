@@ -224,8 +224,12 @@ h1 {
 
 .metric-card,
 .feature-card,
+.step-card,
+.proof-card,
 .screen-card,
-.cta {
+.cta,
+.who-for,
+.faq-item {
   border-radius: var(--radius);
   background: linear-gradient(130deg, rgba(36, 38, 46, 0.95), rgba(24, 25, 31, 0.95));
   border: 1px solid var(--line);
@@ -254,10 +258,74 @@ h1 {
   font-size: 0.95rem;
 }
 
+.how-it-works,
 .features,
 .screens,
+.proof,
+.faq,
 .cta {
   margin-top: 4rem;
+}
+
+.steps-grid {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.step-card {
+  padding: 1.2rem;
+}
+
+.step-number {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(68, 146, 255, 0.2);
+  color: #9bc4ff;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.step-card h3 {
+  margin-bottom: 0.45rem;
+}
+
+.step-card p {
+  color: var(--muted);
+}
+
+.who-for {
+  margin-top: 1.3rem;
+  padding: 1rem 1.2rem;
+}
+
+.who-title {
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+.who-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.who-pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.78rem;
+  color: #d9dde8;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .section-head h2 {
@@ -305,6 +373,24 @@ h1 {
   object-fit: cover;
 }
 
+.proof {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.proof-card {
+  padding: 1.2rem;
+}
+
+.proof-card h3 {
+  margin-bottom: 0.45rem;
+}
+
+.proof-card p {
+  color: var(--muted);
+}
+
 .cta {
   padding: 2rem;
   text-align: center;
@@ -318,6 +404,35 @@ h1 {
 .cta p {
   max-width: 60ch;
   margin: 0.7rem auto 1.2rem;
+  color: var(--muted);
+}
+
+.cta-link {
+  margin-top: 0.7rem;
+}
+
+.faq-list {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.faq-item {
+  padding: 1rem 1.1rem;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 650;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item p {
+  margin-top: 0.55rem;
   color: var(--muted);
 }
 
@@ -422,6 +537,16 @@ h1 {
   color: #ffe2c4;
 }
 
+.release-entry + .release-entry {
+  margin-top: 1.2rem;
+}
+
+.release-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 @media (max-width: 680px) {
   .top-nav {
     gap: 0.6rem;
@@ -440,5 +565,12 @@ h1 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 1020px) {
+  .steps-grid,
+  .proof {
+    grid-template-columns: 1fr;
   }
 }
