@@ -64,6 +64,8 @@ body {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  text-decoration: none;
+  color: var(--text);
 }
 
 .brand-dot {
@@ -88,6 +90,15 @@ body {
 
 .store-link:hover {
   color: var(--text);
+}
+
+.store-link:focus-visible,
+.btn:focus-visible,
+.footer-link:focus-visible,
+.legal-card a:focus-visible {
+  outline: 2px solid #ffd7a8;
+  outline-offset: 3px;
+  border-radius: 10px;
 }
 
 .hero {
@@ -169,6 +180,11 @@ h1 {
   border-color: var(--line);
   color: var(--text);
   background: rgba(255, 255, 255, 0.04);
+}
+
+.btn[disabled] {
+  opacity: 0.8;
+  cursor: not-allowed;
 }
 
 .trust-list {
@@ -410,5 +426,19 @@ h1 {
   .top-nav {
     gap: 0.6rem;
     font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
