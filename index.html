@@ -49,8 +49,8 @@
         </div>
         <div class="hero-media">
           <div class="phone-shell">
-            <video class="demo-video" muted loop playsinline preload="none" poster="assets/scan-config.png">
-              <source data-src="assets/hero-demo.mp4" type="video/mp4">
+            <video class="demo-video" autoplay muted loop playsinline preload="metadata" poster="assets/scan-config.png">
+              <source src="assets/hero-demo.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -206,48 +206,19 @@
     (function () {
       var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       var video = document.querySelector(".demo-video");
-      var source = video ? video.querySelector("source[data-src]") : null;
-      var loaded = false;
       if (!video) return;
-
-      function loadVideoSource() {
-        if (loaded || !source) return;
-        source.src = source.getAttribute("data-src");
-        video.load();
-        loaded = true;
-      }
 
       function syncVideoMotionPreference() {
         if (prefersReducedMotion.matches) {
           video.pause();
           return;
         }
-        loadVideoSource();
         if (video.paused) {
           video.play().catch(function () {});
         }
       }
 
-      function setupIntersectionLoad() {
-        if (!("IntersectionObserver" in window)) {
-          syncVideoMotionPreference();
-          return;
-        }
-        var observer = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                syncVideoMotionPreference();
-                observer.disconnect();
-              }
-            });
-          },
-          { rootMargin: "200px 0px" }
-        );
-        observer.observe(video);
-      }
-
-      setupIntersectionLoad();
+      syncVideoMotionPreference();
       if (typeof prefersReducedMotion.addEventListener === "function") {
         prefersReducedMotion.addEventListener("change", syncVideoMotionPreference);
       } else if (typeof prefersReducedMotion.addListener === "function") {
