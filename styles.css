@@ -68,12 +68,11 @@ body {
   color: var(--text);
 }
 
-.brand-dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ffbf71, var(--accent));
-  box-shadow: 0 0 14px rgba(242, 162, 71, 0.65);
+.brand-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(68, 146, 255, 0.45));
 }
 
 .brand-name {
@@ -471,6 +470,9 @@ h1 {
 
   .site-header .wrap {
     padding: 0.72rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
   }
 
   .cta {
@@ -479,6 +481,17 @@ h1 {
 
   .btn {
     width: 100%;
+  }
+
+  .top-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+    column-gap: 0.75rem;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
   }
 }
 
