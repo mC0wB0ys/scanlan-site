@@ -226,10 +226,17 @@
       function syncVideoMotionPreference() {
         if (prefersReducedMotion.matches) {
           video.pause();
+          video.controls = true;
           return;
         }
+        video.controls = false;
         if (video.paused) {
-          video.play().catch(function () {});
+          var playAttempt = video.play();
+          if (playAttempt && typeof playAttempt.catch === "function") {
+            playAttempt.catch(function () {
+              video.controls = true;
+            });
+          }
         }
       }
 
