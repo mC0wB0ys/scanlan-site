@@ -33,7 +33,7 @@
     <section class="legal-card">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="legal-muted">Last updated: February 17, 2026</p>
+      <p class="legal-muted">Last updated: September 22, 2026</p>
 
       <h2>Overview</h2>
       <p>ScanLan is designed with a privacy-first model. Core network scanning runs on-device.</p>
@@ -45,7 +45,16 @@
       <p>When you scan a network, discovered device and service information is processed locally on your device for results, history, and export functionality.</p>
 
       <h2>Optional Context Lookups</h2>
-      <p>Depending on features you use, optional enrichment context may include DNS, WHOIS, GEO, WAN, or SSL metadata.</p>
+      <p>Some features contact external services. Public-IP lookup contacts Amazon's checkip service, geolocation lookup sends the queried IP address to ipapi.co, and DNS, WHOIS and certificate inspection contact the relevant resolvers, servers or target hosts. Those services receive your connection's public IP address and the information needed for the request.</p>
+
+      <h2>On-Device Insights and Shortcuts</h2>
+      <p>When enabled and available, Apple Foundation Models generates Insights on your device. ScanLan does not send scan reports to an external AI provider or Private Cloud Compute. When AI is unavailable, local rules produce the report. Generated reports may be kept briefly in app memory to avoid repeating work; they are not added to a cloud account. Siri and Shortcuts can access scan names and counts to let you select and open saved reports.</p>
+
+      <h2>Internet Speed Tests</h2>
+      <p>Quick Network Check is available by default, and saved off preferences are respected. Tests run when you select Run Check or Retest on the dashboard, or when you enable automatic tests in Settings. Automatic tests are off by default. Tests transfer download/upload data to M-Lab, with Cloudflare as a fallback. M-Lab collects and publishes measurements including your public IP address. Provider retention and use are governed by their policies: <a href="https://www.measurementlab.net/privacy/">M-Lab</a> and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>. No scan report is included in speed-test payloads. You can disable Quick Network Check in Settings.</p>
+
+      <h2>Your Choices</h2>
+      <p>You can disable on-device AI or Quick Network Check in Settings. Delete saved scans in History to remove those records and clear the temporary Insights cache. Exported files remain wherever you chose to save or share them.</p>
 
       <h2>Data Sharing</h2>
       <p>We do not sell personal data. Exported files are generated at your request and shared only by your actions.</p>
